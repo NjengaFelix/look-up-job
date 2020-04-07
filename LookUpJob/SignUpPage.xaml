@@ -41,7 +41,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="10,486,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="101" Text="Password"/>
             <RadioButton x:Name="rdoEmployer" Content="Employer" HorizontalAlignment="Left" Margin="10,406,0,0" VerticalAlignment="Top" Height="78" FontSize="18"/>
             <RadioButton x:Name="rdoJobSeeker" Content="Job seeker" HorizontalAlignment="Left" Margin="230,409,0,0" VerticalAlignment="Top" FontSize="18" Height="75"/>
-            <Button x:Name="btnSignUpNow" Content="Sign up now" HorizontalAlignment="Left" Margin="142,593,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnSignUpNow" Content="Sign up now" HorizontalAlignment="Left" Margin="142,593,0,0" VerticalAlignment="Top" Click="btnSignUpNow_Click"/>
             <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" RenderTransformOrigin="0.549,-0.131">
             	<Run Text="First name"/>
             	<LineBreak/>
