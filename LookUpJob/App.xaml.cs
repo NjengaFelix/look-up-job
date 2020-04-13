@@ -55,6 +55,15 @@ namespace LookUpJob
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+            //Create the database
+            using (UserDataContext context = new UserDataContext(UserDataContext.DBConnectionString))
+            {
+                if (!context.DatabaseExists())
+                { 
+                    context.CreateDatabase();
+                }
+            }
+
         }
 
         // Code to execute when the application is launching (eg, from Start)
