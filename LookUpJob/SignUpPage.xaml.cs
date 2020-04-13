@@ -15,44 +15,83 @@ namespace LookUpJob
         public SignUpPage()
         {
             InitializeComponent();
-
-            using (UserDataContext context = new UserDataContext(UserDataContext.DBConnectionString))
-            {
-                if (!context.DatabaseExists())
-                    context.CreateDatabase();
-            }
         }
 
         private void btnSignUpNow_Click(object sender, RoutedEventArgs e)
         {
-            string firstName, lastName, email, userName, password;
-            bool is_employee_or_jobSeeker = true;
+            string firstName, lastName, email, username, password;
+            bool is_employee_or_jobSeeker = false;
 
             firstName = txtFirstName.Text;
             lastName = txtLastName.Text;
             email = txtEmail.Text;
-            userName = txtUsername.Text;
+            username = txtUsername.Text;
             password = txtPassword.Password;
 
-            addUser(firstName, lastName, email, is_employee_or_jobSeeker, userName, password);
-
-        }
-
-        private void addUser(string firstName, string lastName, string email, bool is_employee_or_jobSeeker, string userName, string password)
-        {
-            using (UserDataContext context = new UserDataContext(UserDataContext.DBConnectionString))
+            if (string.IsNullOrEmpty(firstName))
             {
-                User_details ud = new User_details();
-                ud.first_name = firstName;
-                ud.last_name = lastName;
-                ud.email = email;
-                ud.is_Employee_or_JobSeeker = is_employee_or_jobSeeker;
-                ud.user_name = userName;
-                ud.password = password;
-
-                context.Users.InsertOnSubmit(ud);
-                context.SubmitChanges();
+                MessageBox.Show("Field first name is empty");
+                return;
             }
+            else if (string.IsNullOrEmpty(lastName))
+            {
+                MessageBox.Show("Field last name is empty");
+                return;
+            }
+            else if (string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Field email is empty");
+                return;
+            }
+            else if (rdoEmployer.IsChecked == false && rdoJobSeeker.IsChecked == false)
+            {
+                MessageBox.Show("Chooser either employer or job seeker");
+                return;
+            }
+            else if (string.IsNullOrEmpty(username))
+            {
+                MessageBox.Show("Field username is empty");
+                return;
+            }
+            else if (string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Field password is empty");
+                return;
+            }
+            else
+            {
+                //In the database, employee is tinyInt 1 while jobseeker is tinyInt 0
+                if (rdoEmployer.IsChecked == true)
+                {
+                    is_employee_or_jobSeeker = true;
+
+                } else if(rdoJobSeeker.IsChecked == true) 
+                {
+                    is_employee_or_jobSeeker = false;
+                }
+
+                //Only one username should exist in the Database
+                User user = new User();
+                if (user.loadUserProfile(username).Count > 0)
+                {
+                    MessageBox.Show("Username exists");
+                    return;
+                }
+                else
+                {
+                    //create the user profile
+                    user.createNewUser(firstName, lastName, email, is_employee_or_jobSeeker, username, password);
+                    //Navigate to login
+                    NavigationService.Navigate(new Uri("/login.xaml", UriKind.Relative));
+                }
+            
+               
+                
+
+            }
+
+            
+
         }
 
 
