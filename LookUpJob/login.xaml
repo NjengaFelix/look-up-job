@@ -32,9 +32,9 @@
             <TextBlock HorizontalAlignment="Left" Margin="32,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Username or email"/>
             <TextBox x:Name="txtuser" HorizontalAlignment="Left" Height="72" Margin="10,150,-10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
             <TextBlock HorizontalAlignment="Left" Margin="32,247,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
-            <Button Content="Login" HorizontalAlignment="Left" Margin="159,478,0,0" VerticalAlignment="Top"/>
+            <Button Content="Login" HorizontalAlignment="Left" Margin="159,478,0,0" VerticalAlignment="Top" Click="Button_Click"/>
             <PasswordBox x:Name="txtpassword" HorizontalAlignment="Left" Margin="10,297,0,0" VerticalAlignment="Top" Width="436"/>
-            <TextBlock HorizontalAlignment="Left" Margin="159,407,0,0" TextWrapping="Wrap" Text="Don't have an account? Sign up" VerticalAlignment="Top">
+            <TextBlock x:Name="txbSignUp" HorizontalAlignment="Left" Margin="159,407,0,0" TextWrapping="Wrap" Text="Don't have an account? Sign up" VerticalAlignment="Top">
 				<i:Interaction.Triggers>
 					<i:EventTrigger EventName="MouseLeftButtonDown">
 						<ec:NavigateToPageAction TargetPage="/SignUpPage.xaml"/>
