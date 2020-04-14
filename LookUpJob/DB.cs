@@ -10,51 +10,51 @@ public class User_details
         get;
         set;
     }
-    [Column(DbType="varchar(100)", CanBeNull = false)]
+    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
     public string first_name
     {
         get;
         set;
     }
-    [Column(DbType = "varchar(100)", CanBeNull = false)]
+    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
     public string last_name
     {
         get;
         set;
     }
-    [Column(DbType = "varchar(5000)", CanBeNull = false)]
+    [Column(DbType = "NVarChar(4000) NOT NULL", CanBeNull = false)]
     public string email
     {
         get;
         set;
     }
-    [Column(DbType = "bit", CanBeNull = false)]
+    [Column(DbType = "bit NOT NULL", CanBeNull = false)]
     public bool is_Employee_or_JobSeeker
     {
         get;
         set;
     }
-    [Column(DbType = "varchar(2000)", CanBeNull = false)]
+    [Column(DbType = "NVarChar(2000) NOT NULL", CanBeNull = false)]
     public string user_name
     {
         get;
         set;
     }
-    [Column(DbType = "text", CanBeNull = false)]
+    [Column(DbType = "NVarChar(4000) NOT NULL", CanBeNull = false)]
     public string password
     {
         get;
         set;
     }
 
-    [Column(DbType = "bit", CanBeNull = true)]
+    [Column(DbType = "bit NULL", CanBeNull = true)]
     public bool is_super_user
     {
         get;
         set;
     }
 
-    [Column(DbType = "bit", CanBeNull = true)]
+    [Column(DbType = "bit NULL", CanBeNull = true)]
     public bool is_active
     {
         get;
@@ -83,21 +83,21 @@ public class Vacancy
         set;
     }
 
-    [Column(DbType = "text", CanBeNull = false)]
+    [Column(DbType = "NVarChar(4000) NOT NULL", CanBeNull = false)]
     public string short_description
     {
         get;
         set;
     }
 
-    [Column(DbType = "varchar(100)", CanBeNull = false)]
+    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
     public string occupation
     {
         get;
         set;
     }
 
-    [Column(DbType = "varchar(100)", CanBeNull = false)]
+    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
     public string position
     {
         get;
@@ -111,7 +111,7 @@ public class Vacancy
         set;
     }
 
-    [Column(DbType = "varchar(300)", CanBeNull = true)]
+    [Column(DbType = "NVarChar(300) NULL", CanBeNull = true)]
     public string highest_level_of_education
     {
         get;
@@ -119,7 +119,7 @@ public class Vacancy
     }
 
 
-    [Column(DbType = "date", CanBeNull = false)]
+    [Column(DbType = "NVarChar(4000) NOT NULL", CanBeNull = false)]
     public string vacancy_deadline_date
     {
         get;
@@ -128,15 +128,15 @@ public class Vacancy
 
     [Column(CanBeNull = false)]
     public int user_id;
-    private EntityRef<User_details> _EmpoyeerVacancy;
-    [Association(Storage = "_EmployeeVacancy", ThisKey = "user_id")]
+    private EntityRef<User_details> _EmployeerVacancy;
+    [Association(Storage = "_EmployeerVacancy", ThisKey = "user_id")]
     public User_details User_details
     {
-        get { return this._EmpoyeerVacancy.Entity; }
-        set { this._EmpoyeerVacancy.Entity = value; }
+        get { return this._EmployeerVacancy.Entity; }
+        set { this._EmployeerVacancy.Entity = value; }
     }
 
-    [Column(DbType = "datetime", CanBeNull = true)]
+    [Column(DbType = "NVarChar(4000) NULL", CanBeNull = true)]
     public string publish_date
     {
         get;
@@ -155,14 +155,14 @@ public class Company
         set;
     }
 
-    [Column(DbType = "varchar(100) NOT NULL", CanBeNull = false)]
+    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
     public string name
     {
         get;
         set;
     }
 
-    [Column(DbType = "varchar(100) NOT NULL", CanBeNull = false)]
+    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
 
     public string company_type
     {
@@ -170,14 +170,14 @@ public class Company
         set;
     }
 
-    [Column(DbType = "varchar(100) NOT NULL", CanBeNull = false)]
+    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
     public string location
     {
         get;
         set;
     }
 
-    [Column(DbType = "varchar(5000) NOT NULL", CanBeNull = false)]
+    [Column(DbType = "NVarChar(4000) NOT NULL", CanBeNull = false)]
     public string email
     {
         get;
@@ -195,7 +195,7 @@ public class CV
         set;
     }
 
-    [Column(DbType = "text", CanBeNull = false)]
+    [Column(DbType = "NVarChar(4000) NOT NULL", CanBeNull = false)]
     public string short_description
     {
         get;
@@ -203,7 +203,7 @@ public class CV
     }
 
 
-    [Column(DbType = "varchar(100)", CanBeNull = false)]
+    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
     public string occupation
     {
         get;
@@ -217,13 +217,14 @@ public class CV
         set;
     }
 
-    [Column(DbType = "varchar(100)", CanBeNull = false)]
+    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
     public string education_level
     {
         get;
         set;
     }
 
+    [Column]
     public int user_id;
     private EntityRef<User_details> _EmployeeCV;
     [Association(Storage = "_EmployeeCV", ThisKey = "user_id")]
