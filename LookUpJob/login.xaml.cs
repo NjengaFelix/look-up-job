@@ -22,6 +22,7 @@ namespace LookUpJob
         {
             string username, password;
             bool user_type = false;
+            int company_id = 0, user_id = 0;
             username = txtuser.Text;
             password = txtpassword.Password;
 
@@ -53,9 +54,12 @@ namespace LookUpJob
                     string userPassword = "";
                     foreach (User_details ud in users)
                     {
+                        user_id = ud.user_id;
+                        user_type = ud.is_Employee_or_JobSeeker;
                         username = ud.user_name;
                         userPassword = ud.password;
-                        user_type = ud.is_Employee_or_JobSeeker;
+                        company_id = ud.company_id;
+                        
                     }
                     //Check password
                     if (userPassword.Contains(password) == false)
@@ -66,11 +70,35 @@ namespace LookUpJob
                     else if (userPassword.Contains(password))
                     {
                         //Create an IsolatedStorageSettings storage to save username and usertype (Session)
+                        IsolatedStorageSettings.ApplicationSettings["user_id"] = user_id;
                         IsolatedStorageSettings.ApplicationSettings["username"] = username;
                         IsolatedStorageSettings.ApplicationSettings["user_type"] = user_type;
+                        IsolatedStorageSettings.ApplicationSettings["company_id"] = company_id;
                         IsolatedStorageSettings.ApplicationSettings.Save();
-                        //Navigate to the MainPage
-                        NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+
+                        if (user_type)
+                        {
+                            if(company_id == 0)
+                            {
+                                NavigationService.Navigate(new Uri("/NewCompanyPage.xaml", UriKind.Relative));
+                                return;
+                            }
+                            else
+                            {
+                                //Navigate to the Employer to EmployerPage
+                                NavigationService.Navigate(new Uri("/CompanyPage.xaml", UriKind.Relative));
+                                return;
+                            }
+                            
+                        }
+                        else
+                        {
+                            //Navigate to the MainPage
+                            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+                        }
+                        
+                        
+                        
                        
                     }
 
