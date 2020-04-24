@@ -71,6 +71,20 @@ namespace LookUpJob
                 return null;
             }
         }
+
+        public static int loadUserId(string userIdKey)
+        {
+            if(IsolatedStorageSettings.ApplicationSettings.Contains(userIdKey))
+            {
+                return (int)IsolatedStorageSettings.ApplicationSettings[userIdKey];
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        
         
     }
 }
