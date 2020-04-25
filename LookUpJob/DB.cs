@@ -91,13 +91,6 @@ public class Vacancy
     }
 
     [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
-    public string occupation
-    {
-        get;
-        set;
-    }
-
-    [Column(DbType = "NVarChar(100) NOT NULL", CanBeNull = false)]
     public string position
     {
         get;
