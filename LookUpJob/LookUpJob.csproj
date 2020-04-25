@@ -120,8 +120,11 @@
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="user.cs" />
-    <Compile Include="VacanciesPage.xaml.cs">
-      <DependentUpon>VacanciesPage.xaml</DependentUpon>
+    <Compile Include="NewVacancyPage.xaml.cs">
+      <DependentUpon>NewVacancyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VacancyDetailsPage.xaml.cs">
+      <DependentUpon>VacancyDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\VacancyViewModel.cs" />
@@ -155,7 +158,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VacanciesPage.xaml">
+    <Page Include="NewVacancyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VacancyDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
