@@ -19,7 +19,7 @@ namespace LookUpJob
         {
             InitializeComponent();
 
-            // Set the data context of the LongListSelector control to the sample data
+            // Set the data context of the LongListSelector control to the Vacancy data
             DataContext = App.ViewModel;
 
             // Sample code to localize the ApplicationBar
