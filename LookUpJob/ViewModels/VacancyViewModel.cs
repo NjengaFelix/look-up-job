@@ -80,6 +80,24 @@ namespace LookUpJob.ViewModels
             }
         }
 
+        private string _highestLevelOfEducation;
+        public string HighestLevelOfEducation
+        {
+            get
+            {
+                return _highestLevelOfEducation;
+            }
+
+            set
+            {
+                if(value !=_highestLevelOfEducation)
+                {
+                    _highestLevelOfEducation = value;
+                    INotifyPropertyChanged("HighestLevelOfEducation");
+                }
+            }
+        }
+
         private string _vacancyDeadline;
         public string VacancyDeadline
         {
@@ -98,20 +116,20 @@ namespace LookUpJob.ViewModels
             }
         }
 
-        private string _highestLevelOfEducation;
-        public string HighestLevelOfEducation
+        private string _companyName;
+        public string CompanyName
         {
-            get
+            get 
             {
-                return _highestLevelOfEducation;
+                return _companyName;
             }
 
             set
             {
-                if(value !=_highestLevelOfEducation)
+                if(value !=_companyName)
                 {
-                    _highestLevelOfEducation = value;
-                    INotifyPropertyChanged("HighestLevelOfEducation");
+                    _companyName = value;
+                    INotifyPropertyChanged("CompanyName");
                 }
             }
         }
