@@ -63,6 +63,7 @@ namespace LookUpJob
             {
                 //Get the userID
                 int userID = User.loadUserId("user_id");
+                int companyID = 0;
                 //Insert into the db.Vacancy
                     using (UserDataContext udt = new UserDataContext(UserDataContext.DBConnectionString))
                     {
@@ -74,13 +75,19 @@ namespace LookUpJob
                         vacancy.highest_level_of_education = highestEduLevel;
                         vacancy.user_id = userID;
                         vacancy.publish_date = DateTime.Now.ToShortDateString();
+                        //Get companyID
+                        var company = udt.Users.Single(u => u.user_id == userID);
+                        companyID = company.company_id;
+                        vacancy.company_id = companyID;
 
                         udt.Vacancies.InsertOnSubmit(vacancy);
 
                     try
                     {
                         udt.SubmitChanges();
-                        NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+                        App.MCompanyViewModel.LoadData();
+                        NavigationService.Navigate(new Uri("/CompanyPage.xaml", UriKind.Relative));
+                        
                     }
                     catch (Exception ex)
                     {
