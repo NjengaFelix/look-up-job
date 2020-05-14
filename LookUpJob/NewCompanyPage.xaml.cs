@@ -61,6 +61,7 @@ namespace LookUpJob
                     try
                     {
                         udt.SubmitChanges();
+                    //    IsolatedStorageSettings.ApplicationSettings["company_id"] = company_id;
                     }
                     catch (Exception ex)
                     {
@@ -90,6 +91,7 @@ namespace LookUpJob
                 }
 
                 //Move to the company page
+                
                 NavigationService.Navigate(new Uri("/CompanyPage.xaml", UriKind.Relative));
             }
             
