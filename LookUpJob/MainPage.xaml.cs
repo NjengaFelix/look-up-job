@@ -20,7 +20,7 @@ namespace LookUpJob
             InitializeComponent();
 
             // Set the data context of the LongListSelector control to the Vacancy data
-            DataContext = App.ViewModel;
+            DataContext = App.MyMainViewModel;
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
@@ -29,9 +29,9 @@ namespace LookUpJob
         // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (!App.ViewModel.IsDataLoaded)
+            if (!App.MyMainViewModel.IsDataLoaded)
             {
-                App.ViewModel.LoadData();
+                App.MyMainViewModel.LoadData();
             }
         }
 
