@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.IO.IsolatedStorage;
+using System.Text.RegularExpressions;
 
 namespace LookUpJob
 {
@@ -62,12 +63,12 @@ namespace LookUpJob
                         
                     }
                     //Check password
-                    if (userPassword.Contains(password) == false)
+                    if (!Regex.IsMatch(password, userPassword))
                     {
                         MessageBox.Show("Incorrect password");
                         return;
                     }
-                    else if (userPassword.Contains(password))
+                    else 
                     {
                         //Create an IsolatedStorageSettings storage to save username and usertype (Session)
                         IsolatedStorageSettings.ApplicationSettings["user_id"] = user_id;

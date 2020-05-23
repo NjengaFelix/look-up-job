@@ -29,7 +29,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0">
-            <TextBlock HorizontalAlignment="Left" Margin="32,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Username or email"/>
+            <TextBlock HorizontalAlignment="Left" Margin="32,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Username"/>
             <TextBox x:Name="txtuser" HorizontalAlignment="Left" Height="72" Margin="10,150,-10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
             <TextBlock HorizontalAlignment="Left" Margin="32,247,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
             <Button Content="Login" HorizontalAlignment="Left" Margin="159,478,0,0" VerticalAlignment="Top" Click="Button_Click"/>
