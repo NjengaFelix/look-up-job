@@ -14,43 +14,46 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <ScrollViewer Margin="0,0,0,-105">
+        <Grid x:Name="LayoutRoot" Background="Transparent" Height="1073">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,10">
-            <TextBlock Text="LOOKUPJOB" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Sign up" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="30"/>
-        </StackPanel>
+            <!--TitlePanel contains the name of the application and page title-->
+            <StackPanel Grid.Row="0" Margin="12,17,0,10">
+                <TextBlock Text="Sign up" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="30"/>
+            </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0" ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <TextBlock HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" RenderTransformOrigin="0.549,-0.131">
+            <!--ContentPanel - place additional content here-->
+            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <TextBlock HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" RenderTransformOrigin="0.549,-0.131">
         		<Run Text="Last name"/>
         		<LineBreak/>
         		<Run/>
-            </TextBlock>
-            <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="72" Margin="0,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Email" Height="33" Width="53"/>
-            <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="72" Margin="0,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="101" Text="Username"/>
-            <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="72" Margin="0,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,486,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="101" Text="Password"/>
-            <RadioButton x:Name="rdoEmployer" Content="Employer" HorizontalAlignment="Left" Margin="10,406,0,0" VerticalAlignment="Top" Height="78" FontSize="18"/>
-            <RadioButton x:Name="rdoJobSeeker" Content="Job seeker" HorizontalAlignment="Left" Margin="230,409,0,0" VerticalAlignment="Top" FontSize="18" Height="75"/>
-            <Button x:Name="btnSignUpNow" Content="Sign up now" HorizontalAlignment="Left" Margin="142,593,0,0" VerticalAlignment="Top" Click="btnSignUpNow_Click"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" RenderTransformOrigin="0.549,-0.131">
+                </TextBlock>
+                <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="72" Margin="0,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Email" Height="33" Width="53"/>
+                <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="72" Margin="0,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="101" Text="Username"/>
+                <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="72" Margin="0,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,486,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="101" Text="Password"/>
+                <RadioButton x:Name="rdoEmployer" Content="Employer" HorizontalAlignment="Left" Margin="10,406,0,0" VerticalAlignment="Top" Height="78" FontSize="18"/>
+                <RadioButton x:Name="rdoJobSeeker" Content="Job seeker" HorizontalAlignment="Left" Margin="230,409,0,0" VerticalAlignment="Top" FontSize="18" Height="75"/>
+                <Button x:Name="btnSignUpNow" Content="Sign up now" HorizontalAlignment="Left" Margin="129,735,0,0" VerticalAlignment="Top" Click="btnSignUpNow_Click"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" RenderTransformOrigin="0.549,-0.131">
             	<Run Text="First name"/>
             	<LineBreak/>
             	<Run/>
-            </TextBlock>
-            <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="72" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-            <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="10,521,0,0" VerticalAlignment="Top" Width="436"/>
+                </TextBlock>
+                <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="72" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="10,521,0,0" VerticalAlignment="Top" Width="436"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,608,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="101" Text="Confirm password"/>
+                <PasswordBox x:Name="txtConfirmPass" HorizontalAlignment="Left" Margin="10,643,0,0" VerticalAlignment="Top" Width="436"/>
 
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollViewer>
 
 </phone:PhoneApplicationPage>
