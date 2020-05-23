@@ -8,11 +8,13 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.IO.IsolatedStorage;
+using System.Text.RegularExpressions;
 
 namespace LookUpJob
 {
     public partial class NewCompany : PhoneApplicationPage
     {
+        int companyID = 0;
         public NewCompany()
         {
             InitializeComponent();
@@ -30,9 +32,19 @@ namespace LookUpJob
                 MessageBox.Show("Input a company name");
                 return;
             }
+            else if (!Regex.IsMatch(name, @"^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Input letters in company name!");
+                return;
+            }
             else if(string.IsNullOrEmpty(company_type))
             {
                 MessageBox.Show("Input a company type");
+                return;
+            }
+            else if (!Regex.IsMatch(company_type, @"^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Input letters in company type!");
                 return;
             }
             else if(string.IsNullOrEmpty(location))
@@ -40,9 +52,19 @@ namespace LookUpJob
                 MessageBox.Show("Input a company location");
                 return;
             }
+            else if (!Regex.IsMatch(location, @"^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Input letters in company location!");
+                return;
+            }
             else if(string.IsNullOrEmpty(email))
             {
                 MessageBox.Show("Input an email");
+                return;
+            }
+            else if (!Regex.IsMatch(email, @"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"))
+            {
+                MessageBox.Show("Input a valid email");
                 return;
             }
             else
@@ -72,11 +94,12 @@ namespace LookUpJob
                     //Get current user id
                     int userId = User.loadUserId("user_id");
                     var query = from c in udt.Users where c.user_id == userId select c;
+                    companyID = company.company_id;
 
                     foreach(User_details u in query)
                     {
                         u.is_super_user = true;
-                        u.company_id = company.company_id;
+                        u.company_id = companyID;
                     }
 
                     try
@@ -91,7 +114,7 @@ namespace LookUpJob
                 }
 
                 //Move to the company page
-                
+                IsolatedStorageSettings.ApplicationSettings["company_id"] = companyID;
                 NavigationService.Navigate(new Uri("/CompanyPage.xaml", UriKind.Relative));
             }
             
