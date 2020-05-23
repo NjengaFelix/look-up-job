@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.IO.IsolatedStorage;
+using System.Text.RegularExpressions;
 
 namespace LookUpJob
 {
@@ -22,15 +23,16 @@ namespace LookUpJob
         {
             string ShortDesc, position, vacancyDeadline, highestEduLevel;
             int experience = 0;
+            
             ShortDesc = txtShortDesc.Text;
             position = txtPosition.Text;
+            
             try
             {
                 experience = Int32.Parse(txtExperience.Text);
             }
             catch (FormatException)
             {
-                MessageBox.Show("Input the number of years of experience(eg 10)");
                 return;
             }
             
@@ -41,12 +43,32 @@ namespace LookUpJob
             //Validation
             if(string.IsNullOrEmpty(ShortDesc))
             {
-                MessageBox.Show("Input short description field");
+                MessageBox.Show("Input short description field!");
+                return;
+            }
+            else if (!Regex.IsMatch(ShortDesc, @".{25,}"))
+            {
+                MessageBox.Show("Short description requires a minimum of 25 characters!");
                 return;
             }
             else if(string.IsNullOrEmpty(position))
             {
-                MessageBox.Show("Input position field");
+                MessageBox.Show("Input position field!");
+                return;
+            }
+            else if (!Regex.IsMatch(position, @"^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Input position field requires letters only!");
+                return;
+            }
+            else if (string.IsNullOrEmpty(txtExperience.Text))
+            {
+                MessageBox.Show("Input experience is empty!");
+                return;
+            }
+            else if (!Regex.IsMatch(txtExperience.Text, @"^[0-9]+$"))
+            {
+                MessageBox.Show("Input experience is requires numbers only!");
                 return;
             }
             else if(string.IsNullOrEmpty(vacancyDeadline))
@@ -57,6 +79,11 @@ namespace LookUpJob
             else if(string.IsNullOrEmpty(highestEduLevel))
             {
                 MessageBox.Show("Input the highest level of education");
+                return;
+            }
+            else if (!Regex.IsMatch(highestEduLevel, @"^[a-zA-Z]+$"))
+            {
+                MessageBox.Show("Input the highest level of education requires letters only");
                 return;
             }
             else
@@ -85,7 +112,9 @@ namespace LookUpJob
                     try
                     {
                         udt.SubmitChanges();
-                        App.MCompanyViewModel.LoadData();
+                        App.MCompanyViewModel.Items.Clear();
+                        App.MCompanyViewModel.IsDataLoaded = false;
+                        
                         NavigationService.Navigate(new Uri("/CompanyPage.xaml", UriKind.Relative));
                         
                     }
