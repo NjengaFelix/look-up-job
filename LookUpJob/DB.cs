@@ -136,6 +136,17 @@ public class Vacancy
         set;
     }
 
+    [Column(CanBeNull = false)]
+    public int company_id;
+    private EntityRef<Company> _CompanyVacancy;
+    [Association(Storage = "_CompanyVacancy", ThisKey = "company_id")]
+    public Company Company
+    {
+        get { return _CompanyVacancy.Entity; }
+        set { this._CompanyVacancy.Entity = value; }
+    }
+
+
 }
 
 [Table]
@@ -268,6 +279,16 @@ public class VacancyApplication
     {
         get { return this._Vacancy.Entity; }
         set { this._Vacancy.Entity = value; }
+    }
+
+    [Column]
+    public int company_id;
+    private EntityRef<Company> _CompanyVacancyApplication;
+    [Association(Storage = "_CompanyVacancyApplication", ThisKey="company_id")]
+    public Company Company
+    {
+        get { return this._CompanyVacancyApplication.Entity; }
+        set { this._CompanyVacancyApplication.Entity = value; }
     }
 }
 
