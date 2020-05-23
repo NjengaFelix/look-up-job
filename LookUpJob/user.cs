@@ -84,6 +84,18 @@ namespace LookUpJob
             }
         }
 
+        public static int loadCompanyId(string companyIdKey)
+        {
+            if (IsolatedStorageSettings.ApplicationSettings.Contains(companyIdKey))
+            {
+                return (int)IsolatedStorageSettings.ApplicationSettings[companyIdKey];
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         
         
     }
