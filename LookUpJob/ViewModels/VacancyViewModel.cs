@@ -134,6 +134,24 @@ namespace LookUpJob.ViewModels
             }
         }
 
+        private string _vacancyEditor;
+        public string VacancyEditor
+        {
+            get
+            {
+                return _vacancyEditor;
+            }
+
+            set
+            {
+                if (value != _vacancyEditor)
+                {
+                    _vacancyEditor = value;
+                    INotifyPropertyChanged("VacancyEditor");
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void INotifyPropertyChanged(string propertyName)
         {
