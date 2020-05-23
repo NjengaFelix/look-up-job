@@ -13,23 +13,61 @@ namespace LookUpJob
 {
     public partial class App : Application
     {
-        private static MainViewModel viewModel = null;
+        private static MainViewModel mainViewModel = null;
+        private static CompanyViewModel companyViewModel = null;
+        private static CVViewModel cvViewModel = null;
+        private static AppliedVacanciesViewModel appliedVacanciesViewModel = null;
 
         /// <summary>
         /// A static ViewModel used by the views to bind against.
         /// </summary>
         /// <returns>The MainViewModel object.</returns>
-        public static MainViewModel ViewModel
+        public static MainViewModel MyMainViewModel
         {
             get
             {
                 // Delay creation of the view model until necessary
-                if (viewModel == null)
-                    viewModel = new MainViewModel();
+                if (mainViewModel == null)
+                    mainViewModel = new MainViewModel();
 
-                return viewModel;
+                return mainViewModel;
             }
         }
+
+        public static CompanyViewModel MCompanyViewModel
+        {
+            get
+            {
+                // Delay creation of the view model until necessary
+                if (companyViewModel == null)
+                    companyViewModel = new CompanyViewModel();
+
+                return companyViewModel;
+            }
+        }
+
+        public static CVViewModel MCVViewModel
+        {
+            get
+            {
+                if(cvViewModel == null)
+                {
+                    cvViewModel = new CVViewModel();
+                }
+                return cvViewModel;
+            }
+        }
+
+       public static AppliedVacanciesViewModel AppliedVacanciesViewModel
+        {
+            get
+            {
+                if (appliedVacanciesViewModel == null)
+                    appliedVacanciesViewModel = new AppliedVacanciesViewModel();
+
+                return appliedVacanciesViewModel;
+            }
+        } 
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -94,10 +132,27 @@ namespace LookUpJob
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
 
-            if (!App.ViewModel.IsDataLoaded)
+            if (!App.MyMainViewModel.IsDataLoaded)
             {
-                App.ViewModel.LoadData();
+                App.MyMainViewModel.LoadData();
+
             }
+
+            if (!App.MCompanyViewModel.IsDataLoaded)
+            {
+                App.MCompanyViewModel.LoadData();
+
+            }
+
+            if(!App.MCVViewModel.isDataLoaded)
+            {
+                App.MCVViewModel.LoadCV();
+            }
+
+            if(!App.appliedVacanciesViewModel.IsDataLoaded)
+            {
+                App.appliedVacanciesViewModel.LoadData();
+            } 
         }
 
         // Code to execute when the application is deactivated (sent to background)
