@@ -16,7 +16,11 @@
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <phone:Panorama Title="Look up job">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
+        <phone:Panorama Title="Look up job" Grid.ColumnSpan="2">
             <phone:Panorama.Background>
                 <ImageBrush ImageSource="/Assets/PanoramaBackground.png"/>
             </phone:Panorama.Background>
@@ -32,9 +36,15 @@
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
                     </TextBlock>
-                    <TextBlock Text="Manage permissions" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Margin="12,143,12,271"/>
-                    <TextBlock Text="Approved positions" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Margin="12,272,12,142"/>
-                    <TextBlock Text="Profile" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Margin="12,382,12,32"/>
+                    <TextBlock Text="Approved positions" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Margin="12,143,12,271"/>
+                    <TextBlock Text="Profile" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Margin="12,272,12,142">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="MouseLeftButtonDown">
+                    			<ec:NavigateToPageAction TargetPage="/CompanyProfile.xaml"/>
+                    		</i:EventTrigger>
+                    	</i:Interaction.Triggers>
+                    </TextBlock>
+
 
                 </Grid>
             </phone:PanoramaItem>
