@@ -93,8 +93,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppliedVacanciesPage.xaml.cs">
+      <DependentUpon>AppliedVacanciesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CompanyPage.xaml.cs">
       <DependentUpon>CompanyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyProfile.xaml.cs">
+      <DependentUpon>CompanyProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="LocalizedStrings.cs" />
@@ -123,18 +129,40 @@
     <Compile Include="NewVacancyPage.xaml.cs">
       <DependentUpon>NewVacancyPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserChangePassword.xaml.cs">
+      <DependentUpon>UserChangePassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VacancyDetailsPage.xaml.cs">
       <DependentUpon>VacancyDetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AppliedVacanciesViewModel.cs" />
+    <Compile Include="ViewModels\CompanyViewModel.cs" />
+    <Compile Include="ViewModels\CVModel.cs" />
+    <Compile Include="ViewModels\CVViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\VacancyApplicationModel.cs" />
     <Compile Include="ViewModels\VacancyViewModel.cs" />
+    <Compile Include="Views\CompanyViews\CompanyVacancyDetailPage.xaml.cs">
+      <DependentUpon>CompanyVacancyDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JobSeekerViews\UserCV.xaml.cs">
+      <DependentUpon>UserCV.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="AppliedVacanciesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CompanyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CompanyProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,7 +190,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VacancyDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CompanyViews\CompanyVacancyDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JobSeekerViews\UserCV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +219,7 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\PanoramaBackground.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -194,7 +235,10 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\icons\add.png" />
+    <Content Include="Resources\icons\delete.png" />
     <Content Include="Resources\icons\edit.png" />
+    <Content Include="Resources\icons\save.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
@@ -207,6 +251,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Interactions, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
