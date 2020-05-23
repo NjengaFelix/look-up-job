@@ -21,7 +21,7 @@ namespace LookUpJob.ViewModels
         public bool IsDataLoaded
         {
             get;
-            private set;
+            set;
         }
             
         public void LoadData()
