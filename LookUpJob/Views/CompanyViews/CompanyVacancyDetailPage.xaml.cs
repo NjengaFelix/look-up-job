@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System.Text.RegularExpressions;
 
 namespace LookUpJob.Views.CompanyViews
 {
@@ -87,9 +88,19 @@ namespace LookUpJob.Views.CompanyViews
                     MessageBox.Show("Field short description is empty!");
                     return;
                 }
+                else if (!Regex.IsMatch(txtShortDesc.Text, @".{25,}"))
+                {
+                    MessageBox.Show("Short description requires a minimum of 25 characters!");
+                    return;
+                }
                 else if(string.IsNullOrEmpty(txtVacancyPosition.Text))
                 {
                     MessageBox.Show("Field position is empty!");
+                    return;
+                }
+                else if (!Regex.IsMatch(txtVacancyPosition.Text, @"^[a-zA-Z]+$"))
+                {
+                    MessageBox.Show("Input position field requires letters only!");
                     return;
                 }
                 else if(string.IsNullOrEmpty(txtYearsofExperience.Text))
@@ -97,9 +108,19 @@ namespace LookUpJob.Views.CompanyViews
                     MessageBox.Show("Field years of experience is empty!");
                     return;
                 }
+                else if (!Regex.IsMatch(txtYearsofExperience.Text, @"^[0-9]+$"))
+                {
+                    MessageBox.Show("Input experience is requires numbers only!");
+                    return;
+                }
                 else if(string.IsNullOrEmpty(txtHLOEdu.Text))
                 {
                     MessageBox.Show("Field years of highest level of education is empty!");
+                    return;
+                }
+                else if (!Regex.IsMatch(txtHLOEdu.Text, @"^[a-zA-Z]+$"))
+                {
+                    MessageBox.Show("Input the highest level of education requires letters only");
                     return;
                 }
                 else if (string.IsNullOrEmpty(txtVacancyDeadline.Text))
@@ -107,6 +128,7 @@ namespace LookUpJob.Views.CompanyViews
                     MessageBox.Show("Field years of vacancy deadline is empty!");
                     return;
                 }
+                
                 else
                 {
                     //Save changes to the Database
