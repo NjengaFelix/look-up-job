@@ -33,9 +33,8 @@ namespace LookUpJob.ViewModels
                 try
                 {
                     //Inner join variable query to get the columns we desire to display
-                    var query = from u in udt.Users
-                                join v in udt.Vacancies on u.user_id equals v.user_id
-                                join c in udt.Company on u.company_id equals c.company_id
+                    var query = from v in udt.Vacancies
+                                join c in udt.Company on v.company_id equals c.company_id
                                 select new
                                 //Getting the columns we require to display
                                 {
@@ -46,13 +45,13 @@ namespace LookUpJob.ViewModels
                                     v.highest_level_of_education,
                                     v.vacancy_deadline_date,
                                     c.name
-                                }
+                                };
                                 //Order the vacancies starting with the most recent
-                                into x orderby x.vacancies_id descending select x;
+                           //    into x orderby x.vacancies_id descending select x;
 
                         foreach (var q in query)
                         {
-                            this.Items.Add(new VacancyViewModel() { ID = q.vacancies_id, ShortDescription = q.short_description, Position = "Position required: "+q.position, YearsOfExperience = q.years_of_experience, HighestLevelOfEducation = q.highest_level_of_education, VacancyDeadline = "Vacancy deadline: "+q.vacancy_deadline_date, CompanyName = "Company: "+q.name });
+                            this.Items.Add(new VacancyViewModel() { ID = q.vacancies_id, ShortDescription = q.short_description, Position = q.position, YearsOfExperience = q.years_of_experience, HighestLevelOfEducation = q.highest_level_of_education, VacancyDeadline = q.vacancy_deadline_date, CompanyName = q.name });
                         }
                 }
                 catch (Exception ex)
