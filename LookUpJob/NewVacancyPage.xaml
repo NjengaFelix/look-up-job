@@ -14,7 +14,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <ScrollViewer>
+    <ScrollViewer Margin="0,0,0,-207">
         <Grid x:Name="LayoutRoot" Background="Transparent" Height="1186" Width="480" RenderTransformOrigin="0.469,0.354">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -29,21 +29,21 @@
 
             <!--ContentPanel - place additional content here-->
             <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0">
-                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Short description" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtShortDesc" HorizontalAlignment="Left" Height="72" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,124,0,0" TextWrapping="Wrap" Text="Position" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtPosition" HorizontalAlignment="Left" Height="72" Margin="0,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,242,0,0" TextWrapping="Wrap" Text="Experience (Number of years)" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtExperience" HorizontalAlignment="Left" Height="72" Margin="0,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,358,0,0" TextWrapping="Wrap" Text="Vacancy deadline" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtVacancyDeadline" HorizontalAlignment="Left" Height="72" Margin="0,403,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,480,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Short description (Min 25 chars)" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtShortDesc" HorizontalAlignment="Left" Height="151" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,211,0,0" TextWrapping="Wrap" Text="Position" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtPosition" HorizontalAlignment="Left" Height="72" Margin="0,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,329,0,0" TextWrapping="Wrap" Text="Experience (Number of years)" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtExperience" HorizontalAlignment="Left" Height="72" Margin="0,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,445,0,0" TextWrapping="Wrap" Text="Vacancy deadline (dd/mm/yy)" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtVacancyDeadline" HorizontalAlignment="Left" Height="72" Margin="0,490,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,567,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                 	<Run Text="Highest level of education"/>
                 	<LineBreak/>
                 	<Run Text=""/>
                 </TextBlock>
-                <TextBox x:Name="txtHLOEdu" HorizontalAlignment="Left" Height="72" Margin="0,533,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-                <Button Content="Submit" HorizontalAlignment="Left" Margin="162,661,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+                <TextBox x:Name="txtHLOEdu" HorizontalAlignment="Left" Height="72" Margin="0,620,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                <Button Content="Submit" HorizontalAlignment="Left" Margin="160,724,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
             </Grid>
         </Grid>
